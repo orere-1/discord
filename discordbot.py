@@ -1,26 +1,33 @@
 import discord
+from discord.ext import tasks
+from datetime import datetime
+import urllib.request
+import json
 import os
 
 token = os.environ['DISCORD_BOT_TOKEN']
-messageId = os.environ['MESSAEGE_ID']
+messageId = os.environ['MESSAGE_ID']
 roleId = os.environ['ROLE_ID']
+channel = os.environ['CHANNEL_ID']
+
 client = discord.Client()
 
+citycode = '130010'
+resp = urllib.request.urlopen('http://weather.livedoor.com/forecast/webservice/json/v1?city =% s' % citycode).read()
+resp = json.loads(resp.decode('utf-8'))
 
 # リアクション関係のメソッド
 @client.event
 async def on_raw_reaction_add(payload):
-
     # 指定したメッセージにリアクションがついたら。
-    if payload.message_id == MESSAEGE_ID:
+    if payload.message_id == [messageId]:
         # サーバーの情報を取得
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g: g.id == guild_id, client.guilds)
         # サーバー情報からロール情報を取得
-        role = guild.get_role(ROLE_ID)
+        role = guild.get_role([roleId])
         # 取得したロール情報をリアクションしたユーザに付与。IDがあっていればこれでリアクションロールはOK。
         await payload.member.add_roles(role)
-
 
 # メッセージ関係のメソッド
 @client.event
@@ -49,4 +56,26 @@ async def on_message(message):
         # メッセージを出力する。pythonコマンド上だとbotが遅いのかPing値が大きい。
         await message.reply(f"Ping値は{ping}msです。\n{judge}")
 
+    if message.content == "/weather":
+        await message.reply(getWeather())
+
+# 1分毎に時刻を取得する。4時なら発信。
+@tasks.loop(seconds=60)
+async def loop():
+    now = datetime.now().strftime('%H:%M')
+    if now == '04:00':
+        channel.send(getWeather())
+
+# 使いみちが複数ある場合、共通の処理は関数で実装しておくと良い。
+# 複数の使い所で同じ処理を長々と書くのは見た目的にも品質的にも良くない。
+async def getWeather():
+    msg = resp['location']['city']
+    msg += "の天気は、\n"
+    for f in resp['forecasts']:
+        msg += f['dateLabel'] + "が" + f['telop'] + "\n"
+    msg += "です。"
+
+    return msg
+
+loop.start()
 client.run(token)
