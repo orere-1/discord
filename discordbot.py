@@ -12,7 +12,7 @@ channel = os.environ['CHANNEL_ID']
 
 client = discord.Client()
 
-citycode = '130010'
+citycode = '080010'
 resp = urllib.request.urlopen('http://weather.livedoor.com/forecast/webservice/json/v1?city =% s' % citycode).read()
 resp = json.loads(resp.decode('utf-8'))
 
