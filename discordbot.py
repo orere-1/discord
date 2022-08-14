@@ -1,18 +1,20 @@
 import discord
 from discord.ext import tasks
 from datetime import datetime
+from os import getenv
 import urllib.request
 import json
 import os
 
-token = os.environ['DISCORD_BOT_TOKEN']
+token = getenv('DISCORD_BOT_TOKEN')
 messageId = os.environ['MESSAGE_ID']
 roleId = os.environ['ROLE_ID']
 channel = os.environ['CHANNEL_ID']
+
 client = discord.Client()
 
 citycode = '080010'
-resp = urllib.request.urlopen('http://weather.livedoor.com/forecast/webservice/json/v1?city =% s' % citycode).read()
+resp = urllib.request.urlopen(f"https://weather.tsukumijima.net/api/forecast/city/{citycode}").read()
 resp = json.loads(resp.decode('utf-8'))
 
 # リアクション関係のメソッド
