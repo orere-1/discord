@@ -1,12 +1,11 @@
 import discord
 from discord.ext import tasks
 from datetime import datetime
-from os import getenv
 import urllib.request
 import json
 import os
 
-token = getenv('DISCORD_BOT_TOKEN')
+token = 'OTY3NTg4NzczMDQ5Mjk4OTU1.GwP35_.sgClt4SBQHY8lslLvSKEsuz9wsLh9Huvcnn8KA'
 messageId = os.environ['MESSAGE_ID']
 roleId = os.environ['ROLE_ID']
 channel = os.environ['CHANNEL_ID']
