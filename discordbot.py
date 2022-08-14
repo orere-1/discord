@@ -8,7 +8,7 @@ import os
 token = os.environ['DISCORD_BOT_TOKEN']
 messageId = os.environ['MESSAGE_ID']
 roleId = os.environ['ROLE_ID']
-channel = os.environ['CHANNEL_ID'
+channel = os.environ['CHANNEL_ID']
 client = discord.Client()
 
 citycode = '080010'
