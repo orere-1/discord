@@ -5,11 +5,10 @@ import urllib.request
 import json
 import os
 
-token = os.environ['DISCORD_BOT_TOKEN']
-messageId = os.environ['MESSAGE_ID']
-roleId = os.environ['ROLE_ID']
-channel = os.environ['CHANNEL_ID']
-
+token = 'OTY3NTg4NzczMDQ5Mjk4OTU1.YmSfRA.81d3KEjyJVZnLRYvZ3gp5r2i8Tc'
+messageId = 990415099468603462
+roleId = 990414877921263637
+channel = 967587586640068670
 client = discord.Client()
 
 citycode = '080010'
