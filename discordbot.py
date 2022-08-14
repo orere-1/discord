@@ -12,7 +12,7 @@ channel = os.environ['CHANNEL_ID']
 
 client = discord.Client()
 
-citycode = '080010'
+citycode = '130010'
 resp = urllib.request.urlopen(f"https://weather.tsukumijima.net/api/forecast/city/{citycode}").read()
 resp = json.loads(resp.decode('utf-8'))
 
