@@ -6,9 +6,9 @@ import json
 import os
 
 token = 'OTY3NTg4NzczMDQ5Mjk4OTU1.GwP35_.sgClt4SBQHY8lslLvSKEsuz9wsLh9Huvcnn8KA'
-messageId = os.environ['MESSAEGE_ID']
-roleId = os.environ['ROLE_ID']
-channel = os.environ['CHANNEL_ID']
+messageId = 990415099468603462
+roleId = 990414877921263637
+channel = 967587586640068670
 
 client = discord.Client()
 
