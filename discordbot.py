@@ -18,7 +18,7 @@ resp = json.loads(resp.decode('utf-8'))
 
 # リアクション関係のメソッド
 @client.event
-async def on_raw_reaction_add(payload):
+def on_raw_reaction_add(payload):
     # 指定したメッセージにリアクションがついたら。
     if payload.message_id == [messageId]:
         # サーバーの情報を取得
@@ -68,7 +68,7 @@ async def loop():
 
 # 使いみちが複数ある場合、共通の処理は関数で実装しておくと良い。
 # 複数の使い所で同じ処理を長々と書くのは見た目的にも品質的にも良くない。
-def getWeather():
+async def getWeather():
     msg = resp['location']['city']
     msg += "の天気は、\n"
     for f in resp['forecasts']:
