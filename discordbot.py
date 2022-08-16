@@ -61,13 +61,13 @@ async def on_message(message):
 
 # 1分毎に時刻を取得する。4時なら発信。
 @tasks.loop(seconds=60)
-async def loop():
+def loop():
     now = datetime.now().strftime('%H:%M')
     if now == '04:00':
         channel.send(getWeather())
 
 # 使いみちが複数ある場合、共通の処理は関数で実装しておくと良い。
-def getWeather():
+async def getWeather():
     msg = resp['location']['city']
     msg += "の天気は、\n"
     for f in resp['forecasts']:
