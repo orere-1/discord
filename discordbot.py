@@ -15,7 +15,7 @@ client = discord.Client()
 citycode = '080010'
 resp = urllib.request.urlopen\
 (f"https://weather.tsukumijima.net/api/forecast/city/{citycode}").read()
-resp = json.loads(resp.decode('utf-8'))
+resp = json.loads(resp.decode('utf-8')
 
 # リアクション関係のメソッド
 @client.event
@@ -73,7 +73,7 @@ def getWeather():
     msg += "の天気は、\n"
     for f in resp['forecasts']:
         msg += f['dateLabel'] + "が" + f['telop'] + "\n"
-    msg += "です。"
+    msg += "です"
 
     return msg
 
