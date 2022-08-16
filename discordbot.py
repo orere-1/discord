@@ -68,6 +68,8 @@ def loop():
 
 # 使いみちが複数ある場合、共通の処理は関数で実装しておくと良い。
 def getWeather():
+    
+    
     msg = resp['location']['city']
     msg += "の天気は、\n"
     for f in resp['forecasts']:
@@ -77,4 +79,6 @@ def getWeather():
     return msg
 
 loop.start()
+
+
 client.run(token)
