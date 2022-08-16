@@ -13,7 +13,8 @@ channel = os.environ['CHANNEL_ID']
 client = discord.Client()
 
 citycode = '080010'
-resp = urllib.request.urlopen(f"https://weather.tsukumijima.net/api/forecast/city/{citycode}").read()
+resp = urllib.request.urlopen\
+(f"https://weather.tsukumijima.net/api/forecast/city/{citycode}").read()
 resp = json.loads(resp.decode('utf-8'))
 
 # リアクション関係のメソッド
@@ -69,7 +70,6 @@ def loop():
 # 使いみちが複数ある場合、共通の処理は関数で実装しておくと良い。
 def getWeather():
     
-    
     msg = resp['location']['city']
     msg += "の天気は、\n"
     for f in resp['forecasts']:
@@ -79,6 +79,4 @@ def getWeather():
     return msg
 
 loop.start()
-
-
 client.run(token)
