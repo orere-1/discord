@@ -7,8 +7,8 @@ import os
 
 token = 'OTY3NTg4NzczMDQ5Mjk4OTU1.GwP35_.sgClt4SBQHY8lslLvSKEsuz9wsLh9Huvcnn8KA'
 messageId = 990415099468603462
-roleId = os.environ['ROLE_ID']
-channel = os.environ['CHANNEL_ID']
+roleId = 990414877921263637
+channel = 967587586640068670
 
 client = discord.Client()
 
@@ -62,7 +62,7 @@ async def on_message(message):
 
 # 1分毎に時刻を取得する。4時なら発信。
 @tasks.loop(seconds=60)
-def loop():
+async def loop():
     now = datetime.now().strftime('%H:%M')
     if now == '04:00':
         channel.send(getWeather())
