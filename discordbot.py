@@ -14,7 +14,8 @@ client = discord.Client()
 
 citycode = '080010'
 resp = urllib.request.urlopen\
-(f"https://weather.tsukumijima.net/api/forecast/city/{citycode}").read()
+('http://weather.livedoor.com/forecast/webservice/json/v1?city =% s' % citycode)\
+.read()
 resp = json.loads(resp.decode('utf-8'))
 
 # リアクション関係のメソッド
