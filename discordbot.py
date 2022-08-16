@@ -68,7 +68,7 @@ async def loop():
 
 # 使いみちが複数ある場合、共通の処理は関数で実装しておくと良い。
 # 複数の使い所で同じ処理を長々と書くのは見た目的にも品質的にも良くない。
-async def getWeather():
+def getWeather():
     msg = resp['location']['city']
     msg += "の天気は、\n"
     for f in resp['forecasts']:
