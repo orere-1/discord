@@ -18,7 +18,7 @@ resp = json.loads(resp.decode('utf-8'))
 
 # リアクション関係のメソッド
 @client.event
-def on_raw_reaction_add(payload):
+async def on_raw_reaction_add(payload):
     # 指定したメッセージにリアクションがついたら。
     if payload.message_id == [messageId]:
         # サーバーの情報を取得
