@@ -16,7 +16,7 @@ citycode = '080010'
 resp = urllib.request.urlopen(f"https://weather.tsukumijima.net/api/forecast/city/{citycode}").read()
 resp = json.loads(resp.decode('utf-8'))
 
-#リアクション関係のメソッド
+# リアクション関係のメソッド
 @client.event
 async def on_raw_reaction_add(payload):
     
