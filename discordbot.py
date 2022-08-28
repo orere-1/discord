@@ -21,8 +21,8 @@ resp = json.loads(resp.decode('utf-8'))
 async def on_raw_reaction_add(payload):
 
     # 指定したメッセージにリアクションがついたら。
-    if payload.message_id == 990415099468603462: 
-         # サーバーの情報を取得
+    if payload.message_id == 990415099468603462:
+        # サーバーの情報を取得
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g: g.id == guild_id, client.guilds)
         # サーバー情報からロール情報を取得
