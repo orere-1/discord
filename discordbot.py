@@ -76,5 +76,6 @@ def getWeather():
 
     return msg
 
+
 loop.start()
 client.run(token)
