@@ -68,11 +68,10 @@ async def loop():
 
 # 使いみちが複数ある場合、共通の処理は関数で実装しておくと良い。
 def getWeather():
-    msg = resp['location']['city']
-    msg += "の天気は、\n"
-    for f in resp['forecasts']:
-        msg += f['dateLabel'] + "が" + f['telop'] + "\n"
-    msg += "です"
+    msg = "__【お天気情報：**" + resp["location"]["city"] + "**】__\n"
+    for f in resp["forecasts"]:
+        msg += f["dateLabel"] + "：**" + f["telop"] + "**\n"
+        msg += "```" + resp["description"]["bodyText"] + "```"
 
     return msg
 
