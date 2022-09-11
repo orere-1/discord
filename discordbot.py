@@ -5,7 +5,7 @@ import urllib.request
 import json
 
 
-token = DISCORD_BOT_TOKEN
+token = os.environ['DISCORD_BOT_TOKEN']
 messageId = 990415099468603462
 roleId = 990414877921263637
 channel = 967587586640068670
