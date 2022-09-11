@@ -7,9 +7,9 @@ import os
 
 
 token = os.environ['DISCORD_BOT_TOKEN']
-messageId = 990415099468603462
-roleId = 990414877921263637
-channel = 967587586640068670
+messageId = os.environ['MESSAEGE_ID']
+roleId = os.environ['ROLE_ID']
+channel = os.environ['CHANNEL_ID']
 
 client = discord.Client()
 
@@ -22,12 +22,12 @@ resp = json.loads(resp.decode('utf-8'))
 async def on_raw_reaction_add(payload):
 
     # 指定したメッセージにリアクションがついたら。
-    if payload.message_id == 990415099468603462:
+    if payload.message_id == os.environ['MESSAEGE_ID']:
         # サーバーの情報を取得
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g: g.id == guild_id, client.guilds)
         # サーバー情報からロール情報を取得
-        role = guild.get_role(990414877921263637)
+        role = guild.get_role(roleId = os.environ['ROLE_ID'])
         # 取得したロール情報をリアクションしたユーザに付与。IDがあっていればこれでリアクションロールはOK。
         await payload.member.add_roles(role)
 
