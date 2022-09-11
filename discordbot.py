@@ -4,7 +4,7 @@ from datetime import datetime
 import urllib.request
 import json
 import os
-import subprocess
+
 
 token = os.environ['DISCORD_BOT_TOKEN']
 messageId = 990415099468603462
