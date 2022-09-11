@@ -27,7 +27,7 @@ async def on_raw_reaction_add(payload):
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g: g.id == guild_id, client.guilds)
         # サーバー情報からロール情報を取得
-        role = guild.get_role(roleId = os.environ['ROLE_ID'])
+        role = guild.get_role == roleId = os.environ['ROLE_ID']:
         # 取得したロール情報をリアクションしたユーザに付与。IDがあっていればこれでリアクションロールはOK。
         await payload.member.add_roles(role)
 
