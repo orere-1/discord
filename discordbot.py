@@ -9,7 +9,7 @@ import os
 token = os.environ['DISCORD_BOT_TOKEN']
 messageId = int(os.environ.get('MESSAEGE_ID'))
 roleId = int(os.environ.get('ROLE_ID'))
-channel = int(os.environ.get('CHANNEL_ID))
+channel = int(os.environ.get('CHANNEL_ID)')
 
 client = discord.Client()
 
