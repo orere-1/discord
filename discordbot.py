@@ -23,12 +23,12 @@ async def on_raw_reaction_add(payload):
 
     # 指定したメッセージにリアクションがついたら。
     if payload.message_id == (messageId):
-        #サーバーの情報を取得
+        # サーバーの情報を取得
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g: g.id == guild_id, client.guilds)
-        #サーバー情報からロール情報を取得
+        # サーバー情報からロール情報を取得
         role = guild.get_role(roleId)
-        #取得したロール情報をリアクションしたユーザに付与。IDがあっていればこれでリアクションロールはOK。
+        # 取得したロール情報をリアクションしたユーザに付与。IDがあっていればこれでリアクションロールはOK。
         await payload.member.add_roles(role)
 
 # メッセージ関係のメソッド
