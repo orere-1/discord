@@ -73,7 +73,8 @@ def getWeather():
     msg = "__【お天気情報：**" + resp["location"]["city"] + "**】__\n"
     for f in resp["forecasts"]:
         msg += f["dateLabel"] + "：**" + f["telop"] + "**\n"
-        msg += resp["forecasts"]f["image"]
+    for f in resp["forecasts"]:
+        msg += f["image"]
         msg += "```" + resp["description"]["bodyText"] + "```"
 
     return msg
