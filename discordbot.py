@@ -76,7 +76,6 @@ def getWeather():
         msg += resp["forecasts"] + f["image"]
         msg += "```" + resp["description"]["bodyText"] + "```"
 
-
     return msg
 
 
