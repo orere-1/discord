@@ -75,7 +75,7 @@ def getWeather():
         msg += f["dateLabel"] + "：**" + f["telop"] + "**\n"
         msg += resp["forecasts"] + f["image"]
         msg += "```" + resp["description"]["bodyText"] + "```"
-        
+
 
     return msg
 
