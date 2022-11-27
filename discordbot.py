@@ -13,7 +13,10 @@ channel = int(os.environ.get('CHANNEL_ID'))
 
 client = discord.Client()
 
-citycode = '080010'
+Area = {'稚内':011000,'旭川'012010,'留萌':012020}
+
+Search_Area = ''
+citycode = ''
 resp = urllib.request.urlopen(f"https://weather.tsukumijima.net/api/forecast/city/{citycode}").read()
 resp = json.loads(resp.decode('utf-8'))
 
@@ -59,7 +62,19 @@ async def on_message(message):
         await message.reply(f"Ping値は{ping}msです。\n{judge}")
 
     if message.content == "/weather":
+        await message.reply("地域を入力してください")
+     
+        msg = await client.wait_for('message', check=check, timeout=30)
+        
+        except asyncio.TimeoutError:
+            await channel.send(f'{message.author.mention}さん、時間切れです。もう一度入力しなおしてください。')
+        else:
+             citycode = Area[Search_Area]
+             
+             
+            await channel.send(f'{msg.suthor.mention}さん{}
         await message.reply(getWeather())
+    if message.content == ''
 
 # 1分毎に時刻を取得する。4時なら発信。
 @tasks.loop(seconds=60)
