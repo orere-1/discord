@@ -69,8 +69,14 @@ async def on_message(message):
         except asyncio.TimeoutError:
             await channel.send(f'{message.author.mention}さん、時間切れです。もう一度入力しなおしてください。')
         else:
-             citycode = Area[Search_Area]
-             
+            citycode = Area.get(Search_Area)
+            if citycode == "None":
+                await message.reply("その地域は存在しません")
+            else:
+                
+                
+                
+                
              
             await channel.send(f'{msg.suthor.mention}さん{}
         await message.reply(getWeather())
