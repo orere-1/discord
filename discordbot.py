@@ -13,7 +13,7 @@ channel = int(os.environ.get('CHANNEL_ID'))
 
 client = discord.Client()
 
-Area = {'稚内':011000,'旭川'012010,'留萌':012020}
+Area = {'稚内':011000,'旭川':012010,'留萌':012020}
 
 Search_Area = ''
 citycode = ''
