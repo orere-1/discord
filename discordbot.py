@@ -4,6 +4,7 @@ from datetime import datetime
 import urllib.request
 import json
 import os
+import asyncio
 
 
 token = os.environ['DISCORD_BOT_TOKEN']
