@@ -63,8 +63,8 @@ async def on_message(message):
 
     if message.content == "/weather":
         await message.reply("地域を入力してください")
-     
-        msg = await client.wait_for('message', check=check, timeout=30)
+        try:
+            msg = await client.wait_for('message', check=check, timeout=30)
         
         except asyncio.TimeoutError:
             await channel.send(f'{message.author.mention}さん、時間切れです。もう一度入力しなおしてください。')
