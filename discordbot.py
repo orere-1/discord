@@ -76,7 +76,6 @@ async def on_message(message):
                 await message.reply("その地域は存在しません")
             else:
                 await message.reply(getWeather())
-               
 
 # 1分毎に時刻を取得する。4時なら発信。
 @tasks.loop(seconds=60)
