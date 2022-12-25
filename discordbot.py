@@ -73,8 +73,6 @@ async def on_message(message):
             if citycode == "None":
                 await message.reply("その地域は存在しません")
             else:
-                await message.reply(getWeather())
-                
                 
                 
                 
