@@ -66,7 +66,7 @@ async def on_message(message):
         await message.reply("地域を入力してください")
 
         try:
-            msg = await client.wait_for('message', check=check, timeout=30)
+            await client.wait_for('message', check=check, timeout=30)
         
         except asyncio.TimeoutError:
             # 時間内に入力されなかった場合、エラーメッセージを表示する。
