@@ -64,7 +64,7 @@ async def on_message(message):
 
     if message.content == "/weather":
         await message.reply("地域を入力してください")
-        
+
         try:
             msg = await client.wait_for('message', check=check, timeout=30)
         
