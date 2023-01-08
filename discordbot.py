@@ -67,7 +67,6 @@ async def on_message(message):
 
         try:
             await client.wait_for('message', timeout=30)
-        
         except asyncio.TimeoutError:
             # 時間内に入力されなかった場合、エラーメッセージを表示する。
             await channel.send(f'{message.author.mention}さん、時間切れです。もう一度入力しなおしてください。')
