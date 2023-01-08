@@ -69,12 +69,16 @@ async def on_message(message):
             msg = await client.wait_for('message', check=check, timeout=30)
         
         except asyncio.TimeoutError:
+            # 時間内に入力されなかった場合、エラーメッセージを表示する。
             await channel.send(f'{message.author.mention}さん、時間切れです。もう一度入力しなおしてください。')
         else:
+            # 辞書から取り出した値をcitycodeに格納する
             citycode = Area.get(Search_Area)
+            # もし、存在しない場合、'その地域は存在しません、別の地域を入力してください'を表示する
             if citycode == "None":
                 await message.reply("その地域は存在しません")
             else:
+                # 対応した天気情報を表示する。
                 await message.reply(getWeather())
 
 # 1分毎に時刻を取得する。4時なら発信。
