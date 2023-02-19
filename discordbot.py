@@ -71,6 +71,14 @@ async def on_message(message):
             # 時間内に入力されなかった場合、エラーメッセージを表示する。
             await channel.send(f'{message.author.mention}さん、時間切れです。もう一度入力しなおしてください。')
         else:
+            #指定したチャンネルを取得する
+            channel = discord.utils.get(message.guild.channels, name=general)
+            #取得したチャンネルの最後のメッセージを取得する
+            last_msg = await channel.fetch_message(channel.last_message_id)
+            #取得したメッセージの内容を取得する
+            last_msg_content = last_msg.content
+            #Search_Areaに取得したメッセージの内容を入れる
+            Search_Area = last_msg_content
             # 辞書から取り出した値をcitycodeに格納する
             citycode = Area.get(Search_Area)
             # もし、存在しない場合、'その地域は存在しません、別の地域を入力してください'を表示する
